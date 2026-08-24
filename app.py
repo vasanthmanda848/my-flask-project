@@ -2,18 +2,19 @@ from flask import Flask
 
 app = Flask(__name__)
 
+students = ["Vasikar", "Ravi", "Rahul", "Arun"]
+
 @app.route("/")
 def home():
-    return """
-    <html>
-    <head>
-        <title>My Flask App</title>
-    </head>
-    <body>
-        <h1>Hello Vasikar</h1>
-    </body>
-    </html>
-    """
+
+    result = "<h1>Students</h1><ul>"
+
+    for student in students:
+        result += f"<li>{student}</li>"
+
+    result += "</ul>"
+
+    return result
 
 if __name__ == "__main__":
     app.run(debug=True)
